@@ -10,6 +10,13 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     
+    var appCategory: AppCategory? {
+        didSet{
+            if let name = appCategory?.name{
+                nameLabel.text = name
+            }
+        }
+    }
     private let cellID = "itemCell"
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,10 +73,15 @@ class CategoryCell: UICollectionViewCell,UICollectionViewDataSource, UICollectio
     }
     // 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if let count = appCategory?.apps?.count{
+            return count
+        }else{
+            return 0
+        }
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellID, forIndexPath: indexPath) as! AppCell
+        cell.app = appCategory?.apps?[indexPath.item]
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -81,6 +93,37 @@ class CategoryCell: UICollectionViewCell,UICollectionViewDataSource, UICollectio
 }
 
 class AppCell: UICollectionViewCell{
+    
+    var app: App?{
+        didSet{
+            if let name = app?.name{
+                nameLabel.text = name
+                //calculate the height of name length if the name length is a bit long
+                let rect = NSString(string: name).boundingRectWithSize(CGSizeMake(frame.width, 1000), options: NSStringDrawingOptions.UsesFontLeading.union(NSStringDrawingOptions.UsesLineFragmentOrigin), attributes:[NSFontAttributeName: UIFont.systemFontOfSize(14)], context: nil)
+                
+                if rect.height > 20{
+                    categoryLabel.frame = CGRectMake(0, frame.width + 38, frame.width, 20)
+                    priceLabel.frame = CGRectMake(0, frame.width + 56, frame.width, 20)
+                }else{
+                    categoryLabel.frame = CGRectMake(0, frame.width + 22, frame.width, 20)
+                    priceLabel.frame = CGRectMake(0, frame.width + 40, frame.width, 20)
+                }
+                
+                nameLabel.frame = CGRectMake(0, frame.width + 2, frame.width, 40)
+                nameLabel.sizeToFit()
+            }
+            categoryLabel.text = app?.category
+            if let price = app?.price{
+                priceLabel.text = "$\(price)"
+            }else{
+                priceLabel.text = ""
+            }
+            if let imgName = app?.imageName{
+                appImg.image = UIImage(named: imgName)
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()

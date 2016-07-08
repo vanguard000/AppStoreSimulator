@@ -12,6 +12,7 @@
 		22C8EFB71D3011B600B71540 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C8EFB51D3011B600B71540 /* Main.storyboard */; };
 		22C8EFB91D3011B600B71540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22C8EFB81D3011B600B71540 /* Assets.xcassets */; };
 		22C8EFBC1D3011B600B71540 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C8EFBA1D3011B600B71540 /* LaunchScreen.storyboard */; };
+		22C8EFC41D301EB800B71540 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C8EFC31D301EB700B71540 /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		22C8EFB81D3011B600B71540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22C8EFBB1D3011B600B71540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22C8EFBD1D3011B600B71540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22C8EFC31D301EB700B71540 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				22C8EFB11D3011B600B71540 /* AppDelegate.swift */,
 				22C8EFB31D3011B600B71540 /* ViewController.swift */,
+				22C8EFC31D301EB700B71540 /* CategoryCell.swift */,
 				22C8EFB51D3011B600B71540 /* Main.storyboard */,
 				22C8EFB81D3011B600B71540 /* Assets.xcassets */,
 				22C8EFBA1D3011B600B71540 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				22C8EFB41D3011B600B71540 /* ViewController.swift in Sources */,
 				22C8EFB21D3011B600B71540 /* AppDelegate.swift in Sources */,
+				22C8EFC41D301EB800B71540 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

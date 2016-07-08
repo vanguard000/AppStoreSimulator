@@ -25,21 +25,7 @@ class FeaturedAppsController: UICollectionViewController,  UICollectionViewDeleg
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(view.frame.width, 100)
+        return CGSizeMake(view.frame.width, 230)
     }
 }
 
-class CategoryCell: UICollectionViewCell{
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews(){
-        backgroundColor = UIColor.blackColor()
-    }
-}

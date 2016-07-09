@@ -9,12 +9,14 @@
 import UIKit
 
 class CategoryCell: UICollectionViewCell,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
-    
+
+    var featuredAppsController: FeaturedAppsController?
     var appCategory: AppCategory? {
         didSet{
             if let name = appCategory?.name{
                 nameLabel.text = name
             }
+            appsCollectionView.reloadData()
         }
     }
     private let cellID = "itemCell"
@@ -90,6 +92,13 @@ class CategoryCell: UICollectionViewCell,UICollectionViewDataSource, UICollectio
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
     }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let app = appCategory?.apps?[indexPath.item]{
+            featuredAppsController?.showAppsDetailForApp(app)
+        }
+    }
+    
+    
 }
 
 class AppCell: UICollectionViewCell{
